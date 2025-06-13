@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import backgroundImage from './assets/image.png'; 
+// import backgroundImage from './assets/image.png'; 
+import './App.css';
 
 export default function StudentTaskManager() {
   const [activities, setActivities] = useState<{ text: string; completed: boolean }[]>([]);
@@ -66,14 +67,9 @@ export default function StudentTaskManager() {
 
   return (
     <div
-      className={` items
-                  ${isDarkMode ? 'bg-[#171823]' : 'bg-[#F2F2F2]'}`}
+      className={`items app-background ${isDarkMode ? 'bg-[#171823]' : 'bg-[#F2F2F2]'}`}
       style={{
-        
-       backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'top center', 
-        backgroundRepeat: 'no-repeat',
+        // backgroundImage and related styles moved to CSS
       }}
     >
 
@@ -109,7 +105,7 @@ export default function StudentTaskManager() {
           <p className={`text-center ${isDarkMode ? 'text-gray-500' : 'text-gray-600'}`}>No tasks yet. Add a new todo!</p>
         )}
       
-        {filteredActivities.map((activity, index) => (
+        {filteredActivities.map((activity) => (
           <div className={`flex items-center ${isDarkMode ? 'border-[#393A4C]' : 'border-gray-200'}`} key={activity.text}>
            
             <div
